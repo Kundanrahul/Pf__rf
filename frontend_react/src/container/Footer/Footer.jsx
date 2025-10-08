@@ -67,12 +67,11 @@ const Footer = () => {
             rahulkundan60@gmail.com
           </a>
         </div>
-        <div className="app__footer-card">
+        {/* <div className="app__footer-card">
           <img src={images.mobile} alt="phone" />
           <a href="tel:+91 7051194859" className="p-text">
-            +91 7051194859
           </a>
-        </div>
+        </div> */}
       </div>
 
       {/* Form for collecting user data */}
