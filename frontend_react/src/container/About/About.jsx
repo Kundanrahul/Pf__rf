@@ -22,7 +22,7 @@ const About = () => {
     <div className="about-container">
       <div className="about-heading"  style={{textAlign:'center'}}>
         <h2 className="head-text" >
-          MY WORK<span> AND </span> PORTFOLIO 
+          MY PORTFOLIO 
         </h2>
       </div>
       <div className="app__profiles">
