@@ -49,7 +49,7 @@ function Header() {
             </div>
           </div>
     <div class="tag-cmp app__flex">
-        <p class="p-text moving-gradient">Smart Contract Developer</p>
+        <p class="p-text moving-gradient">Security Aware DeFi Developer</p>
         <br />
         <p class="p-text" style={{textAlign:'center'}}>And</p><br />
         <p class="p-text moving-gradient">Full Stack Web Developer</p>
