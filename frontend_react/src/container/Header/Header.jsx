@@ -33,6 +33,7 @@ function Header() {
 
   return (
     <div className="app__header app__flex">
+      {/* LEFT SECTION */}
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -46,7 +47,10 @@ function Header() {
             <div style={{ marginLeft: 20 }}>
               <p className="p-text">Hey there!, I am</p>
 
-              <h1 className="head-text" style={{ fontSize: '30px' }}>
+              <h1
+                className="head-text"
+                style={{ fontSize: '30px' }}
+              >
                 RAHUL KUNDAN
               </h1>
             </div>
@@ -59,7 +63,10 @@ function Header() {
 
             <br />
 
-            <p className="p-text" style={{ textAlign: 'center' }}>
+            <p
+              className="p-text"
+              style={{ textAlign: 'center' }}
+            >
               And
             </p>
 
@@ -87,36 +94,38 @@ function Header() {
                 rel="noopener noreferrer"
                 download
               >
-                <AiFillFilePdf style={{ fontSize: '30px' }} />
+                <AiFillFilePdf
+                  style={{ fontSize: '30px' }}
+                />
               </a>
             </div>
           )}
         </div>
       </motion.div>
 
+      {/* CENTER IMAGE */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delayChildren: 0.5 }}
+        transition={{
+          duration: 0.5,
+          delayChildren: 0.5,
+        }}
         className="app__header-img"
       >
-        {/* Overlay Behind */}
-        <motion.div
-          animate={{ scale: [0, 1] }}
-          transition={{ duration: 1, ease: 'easeInOut' }}
-          className="overlay_circle"
-        />
-
-        {/* Main Rounded Image */}
         <motion.img
           animate={{ scale: [0, 1] }}
-          transition={{ duration: 1, ease: 'easeInOut' }}
+          transition={{
+            duration: 1,
+            ease: 'easeInOut',
+          }}
           src={images.backimg}
           alt="profile"
           className="profile-img"
         />
       </motion.div>
 
+      {/* RIGHT TECH CIRCLES */}
       <motion.div
         variants={scaleVariants}
         whileInView={scaleVariants.whileInView}
