@@ -58,7 +58,7 @@ function Header() {
 
           <div className="tag-cmp app__flex">
             <p className="p-text moving-gradient">
-              Security Aware DeFi Developer
+              Web3 Security Engineer
             </p>
 
             <br />
