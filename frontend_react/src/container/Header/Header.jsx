@@ -1,11 +1,10 @@
-import React, { memo } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { AppWrap } from '../../wrapper';
 import { images } from '../../constants';
 import './Header.scss';
-import { useState,useEffect } from 'react';
 import { client } from '../../client';
-import {AiFillFilePdf} from 'react-icons/ai';
+import { AiFillFilePdf } from 'react-icons/ai';
 
 const scaleVariants = {
   whileInView: {
@@ -19,7 +18,6 @@ const scaleVariants = {
 };
 
 function Header() {
-
   const [pdfUrl, setPdfUrl] = useState('');
 
   useEffect(() => {
@@ -32,6 +30,7 @@ function Header() {
         console.error('Error fetching PDF:', error);
       });
   }, []);
+
   return (
     <div className="app__header app__flex">
       <motion.div
@@ -43,29 +42,55 @@ function Header() {
         <div className="app__header-badge">
           <div className="badge-cmp app__flex">
             <span>🙋‍♂️</span>
+
             <div style={{ marginLeft: 20 }}>
               <p className="p-text">Hey there!, I am</p>
-              <h1 className="head-text" style={{fontSize:'30px'}}>RAHUL KUNDAN</h1>
+
+              <h1 className="head-text" style={{ fontSize: '30px' }}>
+                RAHUL KUNDAN
+              </h1>
             </div>
           </div>
-    <div class="tag-cmp app__flex">
-        <p class="p-text moving-gradient">Security Aware DeFi Developer</p>
-        <br />
-        <p class="p-text" style={{textAlign:'center'}}>And</p><br />
-        <p class="p-text moving-gradient">Full Stack Web Developer</p>
-    </div>
 
-{pdfUrl && (
-  <div className="tag-cmp app__flex">
-    <p >
-      <span className='pdfnew'  style={{fontSize:'20px'}}>RESUME</span>
-    </p>
-    <a href={pdfUrl} target="_blank" rel="noopener noreferrer" download>
-      <AiFillFilePdf style={{fontSize:'30px'}} /><i className="fa fa-file-pdf-o" aria-hidden="true"></i>
-    </a>
-  </div>
-)}
+          <div className="tag-cmp app__flex">
+            <p className="p-text moving-gradient">
+              Security Aware DeFi Developer
+            </p>
 
+            <br />
+
+            <p className="p-text" style={{ textAlign: 'center' }}>
+              And
+            </p>
+
+            <br />
+
+            <p className="p-text moving-gradient">
+              Full Stack Web Developer
+            </p>
+          </div>
+
+          {pdfUrl && (
+            <div className="tag-cmp app__flex">
+              <p>
+                <span
+                  className="pdfnew"
+                  style={{ fontSize: '20px' }}
+                >
+                  RESUME
+                </span>
+              </p>
+
+              <a
+                href={pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+              >
+                <AiFillFilePdf style={{ fontSize: '30px' }} />
+              </a>
+            </div>
+          )}
         </div>
       </motion.div>
 
@@ -75,13 +100,20 @@ function Header() {
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__header-img"
       >
-        <img className='prof' src={images.backimg} alt="profile_bg" />
+        {/* Overlay Behind */}
+        <motion.div
+          animate={{ scale: [0, 1] }}
+          transition={{ duration: 1, ease: 'easeInOut' }}
+          className="overlay_circle"
+        />
+
+        {/* Main Rounded Image */}
         <motion.img
           animate={{ scale: [0, 1] }}
           transition={{ duration: 1, ease: 'easeInOut' }}
-          src={images.circle}
-          alt="profile_circle"
-          className="overlay_circle"
+          src={images.backimg}
+          alt="profile"
+          className="profile-img"
         />
       </motion.div>
 
@@ -90,11 +122,16 @@ function Header() {
         whileInView={scaleVariants.whileInView}
         className="app__header-circles"
       >
-        {[images.nodejs, images.mongo, images.react].map((circle, index) => (
-          <div className="circle-cmp app__flex" key={`circle-${index}`}>
-            <img src={circle} alt="profile_bg" />
-          </div>
-        ))}
+        {[images.nodejs, images.mongo, images.react].map(
+          (circle, index) => (
+            <div
+              className="circle-cmp app__flex"
+              key={`circle-${index}`}
+            >
+              <img src={circle} alt="tech" />
+            </div>
+          )
+        )}
       </motion.div>
     </div>
   );
